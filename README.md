@@ -176,16 +176,6 @@ http://localhost:5173
 -  Environment variables validated on startup
 
 ---
-
-##  Author
-
-**Ritik Roshan Yadav**
--  B.Tech CSE — NIT Rourkela (CGPA: 9.03)
--  GitHub: [@Ri1tik](https://github.com/Ri1tik)
--  ritik.r.yadav0001@gmail.com
-
----
-
 ##  License
 
 This project is for educational and portfolio purposes.
