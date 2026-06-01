@@ -1,8 +1,6 @@
 #  AI-Powered Job Preparation Platform
 
-A production-ready full-stack GenAI web application that helps users prepare for job interviews by analyzing their resume against job descriptions, detecting skill gaps, generating personalized interview questions, and creating ATS-optimized resumes.
-
->  **Work in Progress** — BUG in gemini API integration.
+A full-stack GenAI web application that helps users prepare for job interviews by analyzing their resume against job descriptions, detecting skill gaps, generating personalized interview questions, and creating ATS-optimized resumes.
 
 ---
 
@@ -84,98 +82,4 @@ GenAI/
 └── README.md
 ```
 
----
 
-##  Getting Started
-
-### Prerequisites
-- Node.js v18+
-- MongoDB (local or Atlas)
-- Google Gemini API Key
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/Ri1tik/GenAI.git
-cd GenAI
-```
-
-### 2. Setup Backend
-```bash
-cd Backend
-npm install
-```
-
-Create `.env` file in `Backend/`:
-```env
-PORT=3000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_min_32_chars
-GOOGLE_API_KEY=your_gemini_api_key
-NODE_ENV=development
-```
-
-Start the backend:
-```bash
-node server.js
-# or with auto-restart
-nodemon server.js
-```
-
-### 3. Setup Frontend
-```bash
-cd Frontend
-npm install
-```
-
-Create `.env` file in `Frontend/`:
-```env
-VITE_API_URL=http://localhost:3000
-```
-
-Start the frontend:
-```bash
-npm run dev
-```
-
-### 4. Open in browser
-```
-http://localhost:5173
-```
-
----
-
-##  API Endpoints
-
-### Auth Routes — `/api/auth`
-
-| Method | Endpoint | Access | Description |
-|---|---|---|---|
-| POST | `/register` | Public | Register a new user |
-| POST | `/login` | Public | Login a user |
-| GET | `/logout` | Public | Clear auth token from cookies and blacklist it |
-| GET | `/getMe` | Private | Get details of the currently authenticated user |
-
-### Interview Routes — `/api/interview`
-
-| Method | Endpoint | Access | Description |
-|---|---|---|---|
-| POST | `/` | Private | Generate interview report based on candidate's resume, self description, and job description |
-| GET | `/:interviewId` | Private | Get interview report by ID |
-| GET | `/` | Private | Get all interview reports of the logged-in user |
-| GET | `/resume/pdf/:interviewReportId` | Private | Download AI-generated resume PDF for the interview report |
-
----
-
-##  Security Features
-
--  JWT stored in **httpOnly cookies** (not localStorage)
--  Token **blacklisting on logout** prevents session reuse
--  Passwords hashed with **bcrypt** (salt rounds: 10)
--  Protected routes via **Express middleware**
--  CORS configured with **credentials: true**
--  Environment variables validated on startup
-
----
-##  License
-
-This project is for educational and portfolio purposes.
